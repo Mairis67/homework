@@ -6,8 +6,6 @@ class Deck
     private array $symbols = [
         '♣', '♦', '♥', '♠'
     ];
-    private array $black = ['♣', '♠'];
-    private  $red = ['♦', '♥'];
 
     public function __construct(array $cards = [])
     {

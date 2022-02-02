@@ -14,12 +14,30 @@ class Player
         return $this->cards;
     }
 
+    public function playerChoseCard(Player $playerOne, Player $npc): void
+    {
+        $chosenCardIndex = array_rand($npc->getCards());
+        $playerOne->cards[] = $npc->cards[$chosenCardIndex];
+        unset($npc->cards[$chosenCardIndex]);
+        $playerOne->disband();
+        $npc->disband();
+    }
+
+    public function npcChoseCard(Player $playerOne, Player $npc): void
+    {
+        $chosenCardIndex = array_rand($playerOne->getCards());
+        $npc->cards[] = $playerOne->cards[$chosenCardIndex];
+        unset($playerOne->cards[$chosenCardIndex]);
+        $npc->disband();
+        $playerOne->disband();
+    }
+
     public function disband()
     {
         $symbols = [];
 
         foreach ($this->cards as $card) {
-            $symbols[] = $card->getSymbol();
+            $symbols[] = $card->getSymbol() . $card->getColor();
         }
 
         $uniqueCardsCount = array_count_values($symbols);
@@ -28,7 +46,7 @@ class Player
             if($count === 1) continue;
             if($count === 2 || $count === 4) {
                 foreach ($this->cards as $index => $card) {
-                    if($card->getSymbol() === (string) $symbol) {
+                    if($card->getSymbol() . $card->getColor() === (string) $symbol) {
                         unset($this->cards[$index]);
                     }
                 }
@@ -36,7 +54,7 @@ class Player
             if($count === 3) {
                 for($i = 0; $i < 2; $i++) {
                     foreach ($this->cards as $index => $card) {
-                        if($card->getSymbol() === (string) $symbol) {
+                        if($card->getSymbol() . $card->getColor() === (string) $symbol) {
                             unset($this->cards[$index]);
                             break;
                         }

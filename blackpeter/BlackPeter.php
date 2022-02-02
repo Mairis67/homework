@@ -19,6 +19,14 @@ class BlackPeter
         return $this->deck;
     }
 
+    public function checkWinner(Player $player): bool {
+        if (count($player->getCards()) == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public static function equalCards(Card $firstCard, Card $secondCard): bool
     {
         return $firstCard->getSymbol() === $secondCard->getSymbol();
