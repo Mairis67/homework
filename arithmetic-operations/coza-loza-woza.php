@@ -1,26 +1,33 @@
 <?php
+$start = 1;
+$numbers = 110;
 
-$numbers = 100;
-
-function CozaLozaWoza($numbers)
+function CozaLozaWoza($numbers, $start): void
 {
-    for($i = 1; $i <= $numbers; $i++) {
+    while($start < $numbers) {
+        for ($i = 1; $i <= 11; $i++) {
             if ($i % 3 === 0 && $i % 5 === 0) {
-                echo 'CozaLoza' . PHP_EOL;
+                echo 'CozaLoza' . ' ';
+                $start++;
             } elseif ($i % 3 === 0) {
-                echo 'Coza' . PHP_EOL;
+                echo 'Coza' . ' ';
+                $start++;
             } elseif ($i % 5 === 0) {
-                echo 'Loza' . PHP_EOL;
+                echo 'Loza' . ' ';
+                $start++;
             } elseif ($i % 7 === 0) {
-                echo 'Woza' . PHP_EOL;
+                echo 'Woza' . ' ';
+                $start++;
             } else {
-                echo $i . PHP_EOL;
+                echo $start . ' ';
+                $start++;
             }
+        }
+        echo PHP_EOL;
     }
-    return $numbers;
 }
 
-echo CozaLozaWoza($numbers) . PHP_EOL;
+CozaLozaWoza($numbers, $start) . PHP_EOL;
 
 
 

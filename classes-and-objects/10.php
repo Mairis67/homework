@@ -2,8 +2,6 @@
 
 class Application
 {
-
-
     function run()
     {
         while (true) {
