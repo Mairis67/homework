@@ -63,9 +63,17 @@ echo $myAccount->getName() . ' has ' . number_format($myAccount->getBalance(), 1
 echo '<><><><><><><><><><><><><><>' . PHP_EOL;
 
 $daveAccount->transferMoney($daveAccount, $mattAccount);
-$mattAccount->transferMoney($mattAccount, $myAccount);
+
 
 echo 'After transfer' . PHP_EOL;
+echo $daveAccount->getName() . ' has ' . number_format($daveAccount->getBalance(), 1) . '$' . PHP_EOL;
+echo $mattAccount->getName() . ' has ' . number_format($mattAccount->getBalance(), 1) . '$' . PHP_EOL;
+echo $myAccount->getName() . ' has ' . number_format($myAccount->getBalance(), 1) . '$' . PHP_EOL;
+echo '<><><><><><><><><><><><><><>' . PHP_EOL;
+
+$mattAccount->transferMoney($mattAccount, $myAccount);
+
+echo 'After second transfer' . PHP_EOL;
 echo $daveAccount->getName() . ' has ' . number_format($daveAccount->getBalance(), 1) . '$' . PHP_EOL;
 echo $mattAccount->getName() . ' has ' . number_format($mattAccount->getBalance(), 1) . '$' . PHP_EOL;
 echo $myAccount->getName() . ' has ' . number_format($myAccount->getBalance(), 1) . '$' . PHP_EOL;
