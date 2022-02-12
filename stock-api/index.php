@@ -81,9 +81,9 @@ $client = new Finnhub\Api\DefaultApi(
 
     <div class="box4">
         <?php
-        echo 'Stock name: ' . $client->companyProfile2("SYZLF")->getTicker();
+        echo 'Stock name: ' . $client->companyProfile2("TDS")->getTicker();
         echo '</br>';
-        echo 'Stock price: ' . $client->quote("SYZLF")->getC();
+        echo 'Stock price: ' . $client->quote("TDS")->getC();
         echo '</br>';
         if ($client->quote("TDS")->getDp() < 0) { ?>
             <span id="red">
