@@ -28,7 +28,15 @@ $client = new Finnhub\Api\DefaultApi(
         echo '</br>';
         echo 'Stock price: ' . $client->quote("AAPL")->getC();
         echo '</br>';
-        echo 'Change: ' . $client->quote("AAPL")->getDp() . '% (' . $client->quote("AAPL")->getD() . ')';
+        if ($client->quote("AAPL")->getDp() < 0) { ?>
+            <span id="red">
+           <?php echo $client->quote("AAPL")->getDp() . '% (' . $client->quote("AAPL")->getD() . ')'; ?>
+        </span>
+        <?php } else { ?>
+            <span id="green">
+                <?php echo $client->quote("AAPL")->getDp() . '% (' . $client->quote("AAPL")->getD() . ')'; ?>
+            </span>
+        <?php }
         echo '</br>';
         ?>
     </div>
@@ -39,7 +47,15 @@ $client = new Finnhub\Api\DefaultApi(
         echo '</br>';
         echo 'Stock price: ' . $client->quote("MSFT")->getC();
         echo '</br>';
-        echo 'Change: ' . $client->quote("MSFT")->getDp() . '% (' . $client->quote("MSFT")->getD() . ')';
+        if ($client->quote("MSFT")->getDp() < 0) { ?>
+            <span id="red">
+           <?php echo $client->quote("MSFT")->getDp() . '% (' . $client->quote("MSFT")->getD() . ')'; ?>
+        </span>
+        <?php } else { ?>
+            <span id="green">
+                <?php echo $client->quote("MSFT")->getDp() . '% (' . $client->quote("MSFT")->getD() . ')'; ?>
+            </span>
+        <?php }
         echo '</br>';
         ?>
     </div>
@@ -50,7 +66,15 @@ $client = new Finnhub\Api\DefaultApi(
         echo '</br>';
         echo 'Stock price: ' . $client->quote("AMZN")->getC();
         echo '</br>';
-        echo 'Change: ' . $client->quote("AMZN")->getDp() . '% (' . $client->quote("AMZN")->getD() . ')';
+        if ($client->quote("AMZN")->getDp() < 0) { ?>
+            <span id="red">
+           <?php echo $client->quote("AMZN")->getDp() . '% (' . $client->quote("AMZN")->getD() . ')'; ?>
+        </span>
+        <?php } else { ?>
+            <span id="green">
+                <?php echo $client->quote("AMZN")->getDp() . '% (' . $client->quote("AMZN")->getD() . ')'; ?>
+            </span>
+        <?php }
         echo '</br>';
         ?>
     </div>
@@ -61,7 +85,16 @@ $client = new Finnhub\Api\DefaultApi(
         echo '</br>';
         echo 'Stock price: ' . $client->quote("SYZLF")->getC();
         echo '</br>';
-        echo 'Change: ' . $client->quote("SYZLF")->getDp() . '% (' . $client->quote("SYZLF")->getD() . ')';
+        if ($client->quote("TDS")->getDp() < 0) { ?>
+            <span id="red">
+           <?php echo $client->quote("TDS")->getDp() . '% (' . $client->quote("TDS")->getD() . ')'; ?>
+        </span>
+        <?php } else { ?>
+            <span id="green">
+                <?php echo $client->quote("TDS")->getDp() . '% (' . $client->quote("TDS")->getD() . ')'; ?>
+            </span>
+        <?php }
+        echo '</br>';
         ?>
     </div>
 </div>
